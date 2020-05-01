@@ -1,5 +1,6 @@
-from typing import Any, Optional, List, Type, Tuple, Dict, Literal
+from typing import Any, Optional, List, Sequence, Type, Tuple, Dict, Literal
 
+from rest_framework.permissions import BasePermission
 from rest_framework.renderers import BaseRenderer
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -41,5 +42,5 @@ def get_schema_view(
     validators: Optional[List[str]] = ...,
     generator_class: Optional[Type[OpenAPISchemaGenerator]] = ...,
     authentication_classes: Optional[Tuple[str]] = ...,
-    permission_classes: Optional[Tuple[str]] = ...,
+    permission_classes: Sequence[Type[BasePermission]] = ...,
 ) -> _SchemaView: ...
